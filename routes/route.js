@@ -11,6 +11,7 @@ router.post("/api/v1/signup", signup);
 router.post("/api/v1/login", login);
 
 router.get("/api/admin/users", getuser);
-router.delete("/api/admin/users:email", deleteUser);
+
+router.delete("/api/admin/users/:id", deleteUser);
 
 module.exports = router;

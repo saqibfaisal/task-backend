@@ -18,6 +18,10 @@ const UserSchema = new mongoose.Schema({
     confirmpassword: {
         type: String,
         require: true,
+    },
+    userType:{
+        type:String,
+        default:"user"
     }
 })
 const UserModel = mongoose.model("user", UserSchema)

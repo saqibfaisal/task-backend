@@ -1,14 +1,9 @@
 const UserModel = require("../model/userSchema");
 
 const deleteUser = async (req, res) => {
-  const emailToDelete = req.params.email;
+  const { id } = req.params;
   try {
-    const deletedUser = await UserModel.findOneAndDelete({
-      email: emailToDelete,
-    });
-    if (!deletedUser) {
-      return res.status(404).json({ message: "User not found" });
-    }
+    await UserModel.findByIdAndDelete(id);
     res.json({ message: "User deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: "Error deleting user", error: err });
