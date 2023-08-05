@@ -23,7 +23,7 @@ const signup = async (req, res) => {
                 res.send({ message: 'User already exists' });
             } else {
                 const user = await UserModel.create(userObj);
-                res.send({ message: 'User successfully signed up' });
+                res.send({ message: 'User successfully signed up',user });
             }
         } catch (err) {
             res.send(err);
